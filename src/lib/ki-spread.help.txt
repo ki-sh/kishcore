@@ -1,0 +1,10 @@
+    Ki-spread enabled commands (default)
+    cmd                      # (no params). runs for current dir's first child dirs
+    cmd .                    # runs in current dir only.
+    cmd mydir                # runs across all first child dirs of mydir  
+    cmd mydir/.              # runs in mydir/. only.
+    cmd myfile               # runs only on given file(s)
+    cmd myf*                 # runs on all files starting with myf (globbing patterns)
+    cmd myd*/.               # runs on all dirs starting with 'myd'
+    cmd myd*/. "exta args"   # extra args appended to cmd.
+    gc kish*/. "cmt msg"     # example used with git commit

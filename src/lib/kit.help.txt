@@ -1,0 +1,62 @@
+
+ An alternative to Bats for shell script testing.
+ Home rolled, Opinionated to S.A.F (simple as fuck) - it should be super simple, to use, and to change framwork code.
+ I didnt want to learn another DSL, battle install/running quirks, just wanted a way to be able to
+ test shell scripts. I think it is pretty sweet:
+
+quick start:
+look at ocal.test.sh to see a live example of using kit.
+then try kigen - generates yourcmd.sh, yourcmd.lib.sh, yourcmd.test.sh
+
+ Features:
+  red green testing with counts for passes, fails, skipped.
+  xit, xeq etc. -  xon xoff - turn off tests/blocks.
+  oit - only run specified tests. (for each test file being run - if OIT-NOOP-IT!)
+  CI integration ready.
+ 
+  eq 'test description' result expected
+  example:
+  fn=$(theFnToTest "param1" "param2")
+  eq 'test desc' "$fn" 'expected'
+  
+  stdout visual red/green indented.
+
+
+ Why: 
+ Bats is pretty much the only alternative for shell script unit testing.
+ It has its own domain specifc language, and frankly quite a steep learning curve.
+ This home rolled alternative is:
+  * super simple - you can understand the code in minutes.
+  * encourages code reuse through .lib.sh files as part of kish.
+  * provides auto-geneation of test, lib, command line execution files.
+  * This provides a basis for good practices of separation of code.
+  * Since it is super simple it is zero setup, zero learning curve.
+  * OK - it doesnt provide integration testing for CI/code coverage etc, but its shell scripts - YAGNI?
+  * So there, kudos, and ya boo sucks Bats ;)
+  * tests should be easily portable to bats/whatever latest & next greatest test framework that might come along anyway.
+  but these are bash scripts, so this  a keep it simple option.
+
+
+Run a sepcific test /directory.
+
+tap compliance!
+test fail/pass count & summary
+last run fails only (store file, line)
+
+# SETUP-TO
+
+# ONLY-FROM
+
+# ONLY
+
+Parse to temp.test.sh
+
+This is nice because integration tests will run every thing - igoring onlys!
+
+
+Pretty much what’s left is eq codes/tap compatibility.
+
+
+  Generate: The only nice to have I might add is generate fn.sh, fn.lib.sh, fn.test.sh
+
+
