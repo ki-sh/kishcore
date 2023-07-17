@@ -7,7 +7,7 @@
   "homepage": "https://github.com/ki-sh/kish",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ki-sh/kish-core.git"
+    "url": "git+https://github.com/ki-sh/kishcore.git"
   },
   "scripts": {
     "test": "$HOME/.kish/lib/kit.sh src/lib"

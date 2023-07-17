@@ -1,6 +1,6 @@
 #!/bin/bash
 # clear
-kcore=$PWD/node_modules/kish-core
+kcore=$PWD/node_modules/kishcore
 
 # echo ''
 # cat $kcore/src/lib/ascii.txt
@@ -167,7 +167,7 @@ stinstall() {
     fi
   done
 
-  # copy kish-core/src/lib/* files (not subdirs) to $dest
+  # copy kishcore/src/lib/* files (not subdirs) to $dest
   for f in "$kcore"/src/lib/*; do
     if [[ -f "$f" ]]; then
       # echo "$f $dest${f##*/}"
