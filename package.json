@@ -1,5 +1,5 @@
 {
-  "name": "kish-core",
+  "name": "kishcore",
   "version": "1.0.0",
   "description": "command line shortcuts for git:g, npm: n, yarn:y. mono/multi/poly repo ready.",
   "author": "Henry Kemp",
