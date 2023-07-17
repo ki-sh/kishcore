@@ -18,7 +18,6 @@ function ey() {
     echo "${YELLOW}$*${NORMAL}"
 }
 
-
 function _ki-spread() {
     local res=""
     local returndir=$PWD
@@ -34,12 +33,12 @@ function _ki-spread() {
             else
                 cmd+=" $p"
             fi
-        else 
+        else
             file_dir_count+=1
         fi
     done
 
-     # no params, or no files and no directories, default to current dir:
+    # no params, or no files and no directories, default to current dir:
     if [ $# -eq 0 ] || [ $file_dir_count == 0 ]; then
         set "./"
     fi
@@ -58,14 +57,22 @@ function _ki-spread() {
 
         fi
         if [ -f "$p" ]; then
-            res+="ey $p:,"
-            res+="$cmd $p,"
+        # some commands -git add yes you strange beast! need to cd to dir to assure works.
+        # reliability over efficiency.
+            file=$(basename "$p")
+            dir=$(dirname "$p")
+            res+="cd $dir,"
+            res+="echo '',"
+            res+="ey $dir:,"
+            res+="$cmd $file,"    # params if $@, shift dir
+            res+="cd $returndir," #("cd ..") #
+            # res+="ey $p:,"
+            # res+="$cmd $p,"
             # log_info "has_target_files -f $p"
         fi
     done
     echo "$res"
 }
-
 
 # main operational entry point function.
 # return commands to execute based on:
