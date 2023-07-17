@@ -47,14 +47,14 @@ t() {
 it t
 
 t() {
-    # local input="A/a.txt A/a2.txt" 
+    # local input="A/a.txt A/a2.txt"
     cmd="ls"
     res=$(_ki-spread A/a.txt A/a2.txt)
     eq "($cmd $A/a.txt A/a2.txt) params multiple files eg globbing: l A/* ." "$res" "ls A/a.txt,ls A/a2.txt,"
-#     eq "e2e run just file" "$(ki-spread "A/a.txt" "A/a2.txt")" "A/a.txt
-# A/a2.txt" # runs it.
-# todo-double reporting.
-ki-spread "A/a.txt" "A/a2.txt"
+    #     eq "e2e run just file" "$(ki-spread "A/a.txt" "A/a2.txt")" "A/a.txt
+    # A/a2.txt" # runs it.
+    # todo-double reporting.
+    ki-spread "A/a.txt" "A/a2.txt"
 
 }
 it t
@@ -63,7 +63,7 @@ t() {
     local input="X"
     cmd="ls"
     res=$(_ki-spread "$input")
-    eq "($cmd $input). Not found dir X. " "$res" "cd ./A,echo '',ey ./A:,ls ,cd /Users/henrykemp/dev/Timermachine/kish-core/src/lib/ki-spread-testrig,cd ./B,echo '',ey ./B:,ls ,cd /Users/henrykemp/dev/Timermachine/kish-core/src/lib/ki-spread-testrig,cd ./C,echo '',ey ./C:,ls ,cd /Users/henrykemp/dev/Timermachine/kish-core/src/lib/ki-spread-testrig,"
+    eq "($cmd $input). Not found dir X. " "$res" "cd ./A,echo '',ey ./A:,ls ,cd $PWD,cd ./B,echo '',ey ./B:,ls ,cd $PWD,cd ./C,echo '',ey ./C:,ls ,cd $PWD,"
     ki-spread "./"
 }
 it t
@@ -72,7 +72,7 @@ t() {
     local input="./"
     cmd="ls"
     res=$(_ki-spread "$input")
-    eq "($cmd $input). Perform command on all child dirs. " "$res" "cd ./A,echo '',ey ./A:,ls ,cd /Users/henrykemp/dev/Timermachine/kish-core/src/lib/ki-spread-testrig,cd ./B,echo '',ey ./B:,ls ,cd /Users/henrykemp/dev/Timermachine/kish-core/src/lib/ki-spread-testrig,cd ./C,echo '',ey ./C:,ls ,cd /Users/henrykemp/dev/Timermachine/kish-core/src/lib/ki-spread-testrig,"
+    eq "($cmd $input). Perform command on all child dirs. " "$res" "cd ./A,echo '',ey ./A:,ls ,cd $PWD,cd ./B,echo '',ey ./B:,ls ,cd $PWD,cd ./C,echo '',ey ./C:,ls ,cd $PWD,"
     ki-spread "./"
 }
 it t
@@ -81,9 +81,9 @@ t() {
     local input=""
     cmd="ls"
     res=$(_ki-spread)
-    eq "(no params) default to . dir. Perform command on all child dirs. " "$res" "cd ./A,echo '',ey ./A:,ls ,cd /Users/henrykemp/dev/Timermachine/kish-core/src/lib/ki-spread-testrig,cd ./B,echo '',ey ./B:,ls ,cd /Users/henrykemp/dev/Timermachine/kish-core/src/lib/ki-spread-testrig,cd ./C,echo '',ey ./C:,ls ,cd /Users/henrykemp/dev/Timermachine/kish-core/src/lib/ki-spread-testrig,"
+    eq "(no params) default to . dir. Perform command on all child dirs. " "$res" "cd ./A,echo '',ey ./A:,ls ,cd $PWD,cd ./B,echo '',ey ./B:,ls ,cd $PWD,cd ./C,echo '',ey ./C:,ls ,cd $PWD,"
     # ki-spread "./"
-    e2eres=$(ki-spread )
+    e2eres=$(ki-spread)
     eq "e2e git applicable" "$e2eres" "
 ./A:
 a.txt
@@ -103,7 +103,7 @@ t() {
     local input="./C"
     cmd="ls"
     res=$(_ki-spread "$input")
-    eq "($cmd $input) directory specified." "$res" "cd ./C/C1,echo '',ey ./C/C1:,ls ,cd /Users/henrykemp/dev/Timermachine/kish-core/src/lib/ki-spread-testrig,cd ./C/C2,echo '',ey ./C/C2:,ls ,cd /Users/henrykemp/dev/Timermachine/kish-core/src/lib/ki-spread-testrig,"
+    eq "($cmd $input) directory specified." "$res" "cd ./C/C1,echo '',ey ./C/C1:,ls ,cd $PWD,cd ./C/C2,echo '',ey ./C/C2:,ls ,cd $PWD,"
     e2eres=$(ki-spread "$input")
     eq "e2e run directory specified" "$e2eres" "
 ./C/C1:
@@ -121,7 +121,7 @@ t() {
     applicable=".git"
     cmd="ls"
     res=$(_ki-spread "$input")
-    eq "($cmd $input) applicable=$applicable. only exec for dirs that contain applicable." "$res" "cd ./A,echo '',ey ./A:,ls ,cd /Users/henrykemp/dev/Timermachine/kish-core/src/lib/ki-spread-testrig,"
+    eq "($cmd $input) applicable=$applicable. only exec for dirs that contain applicable." "$res" "cd ./A,echo '',ey ./A:,ls ,cd $PWD,"
     e2eres=$(ki-spread "")
     eq "e2e git applicable" "$e2eres" "
 ./A:
@@ -150,12 +150,11 @@ t() {
 }
 it t
 
-
 t() {
     local input="./C/."
     cmd="ls"
     res=$(_ki-spread "$input")
-    eq "($cmd $input). Perform command only on given dir. " "$res" "cd ./C/.,echo '',ey ./C/.:,ls ,cd /Users/henrykemp/dev/Timermachine/kish-core/src/lib/ki-spread-testrig,"
+    eq "($cmd $input). Perform command only on given dir. " "$res" "cd ./C/.,echo '',ey ./C/.:,ls ,cd $PWD,"
     ki-spread "$input"
 }
 it t
@@ -164,12 +163,11 @@ t() {
     local input="C/C*/."
     cmd="ls"
     res=$(_ki-spread "$input")
-    eq "($cmd $input). globbed dir names with trailing dot " "$res" "cd C/C*/.,echo '',ey C/C*/.:,ls ,cd /Users/henrykemp/dev/Timermachine/kish-core/src/lib/ki-spread-testrig,"
+    eq "($cmd $input). globbed dir names with trailing dot " "$res" "cd C/C*/.,echo '',ey C/C*/.:,ls ,cd $PWD,"
     # ki-spread "$input"
-     e2eres=$(ki-spread "$input")
+    e2eres=$(ki-spread "$input")
     eq "e2e git applicable" "$e2eres" "xxx"
 }
 oit t
-
 
 teardown

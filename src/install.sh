@@ -1,6 +1,6 @@
 #!/bin/bash
 # clear
-kcore=$PWD/node_modules/kish-core
+kcore=$PWD/node_modules/kishcore
 
 # echo ''
 # cat $kcore/src/lib/ascii.txt
@@ -26,7 +26,7 @@ preflight() {
   if [ ! -d "$PWD/aliases" ] || [ ! -d "$kcore/src/lib" ]; then
     echo "Preflight check not passed."
     echo 'install must be run from kish/ folder. '
-    echo 'ie: from kish run:  ./node_moudles/src/install.sh'
+    echo 'ie: from kish run:  ./node_modules/kishcore/src/install.sh'
     echo 'The reason being: install needs to locate your local files so they can be kept under source control'
     exit
   fi
@@ -167,7 +167,7 @@ stinstall() {
     fi
   done
 
-  # copy kish-core/src/lib/* files (not subdirs) to $dest
+  # copy kishcore/src/lib/* files (not subdirs) to $dest
   for f in "$kcore"/src/lib/*; do
     if [[ -f "$f" ]]; then
       # echo "$f $dest${f##*/}"
