@@ -1,7 +1,7 @@
 # KI sh <a href=https://en.wikipedia.org/wiki/Qi > き </a>
 
 click 'Use this template' button on this page.
- DO NOT NPM I KISHCORE - except from kish templated repo.
+ DO NOT NPM I this! - except from <a href=https://github.com/ticaboo/kish >Kish Templated repo</a>
 
 
 ```
@@ -29,7 +29,7 @@ click 'Use this template' button on this page.
 * Easily create/customise/manage command line shortcuts.
 * Never loose your shell aliases/easily share between devices. Save in your own repo (from <a href=https://github.com/ticaboo/kish >Template</a>)
 * Never have to type cd, or its evil twin cd .. again!
-* Zero dependencies. Simple to use test framework (KIT)
+* Zero dependencies. Simple to use shell test framework (KIT).Tcho Bats?
 * Ubiqutous v3 portable pure shell script.
 * Comes with very useful example scripts:
   * ocal : fast easy human cli for creating calendar events.
@@ -62,8 +62,8 @@ cd into kish.
 
 Congratulations, you are on the flowfull path of never using cd .. again!
 
-Here is a video showing the features of ki, with an example of one way of using it
-in a polyrepo scenario:
+Coming soon:  video showing the features of ki, with an example of one way of using it
+in a polyrepo scenario.
 
 
 

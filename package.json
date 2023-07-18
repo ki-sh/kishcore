@@ -1,6 +1,6 @@
 {
   "name": "kishcore",
-  "version": "1.0.33",
+  "version": "1.0.34",
   "description": "command line shortcuts for git:g, npm: n, yarn:y. mono/multi/poly repo ready.",
   "author": "Henry Kemp",
   "license": "MIT",
