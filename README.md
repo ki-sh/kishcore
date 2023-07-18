@@ -1,7 +1,7 @@
 # KI sh <a href=https://en.wikipedia.org/wiki/Qi > き </a>
 
 click 'Use this template' button on this page.
- DO NOT NPM I this! - except from <a href=https://github.com/ticaboo/kish >Kish Templated repo</a>
+ DO NOT NPM I this! - except from <a href=https://github.com/ki-sh/kish >Kish Templated repo</a>
 
 
 ```
@@ -38,7 +38,7 @@ click 'Use this template' button on this page.
 
 
 ## Install
-click Use this template button on  <a href=https://github.com/ticaboo/kish >this page</a>.
+click Use this template button on  <a href=https://github.com/ki-sh/kish >this page</a>.
 Then clone your repo and:
 ```
 cd kish
