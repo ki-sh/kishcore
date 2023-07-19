@@ -1,7 +1,10 @@
 # KI sh <a href=https://en.wikipedia.org/wiki/Qi > き </a>
 
-click 'Use this template' button on this page.
- DO NOT NPM I this! - except from <a href=https://github.com/ki-sh/kish >Kish Templated repo</a>
+#  <a href=https://github.com/ki-sh/kishcore > KISHCORE き </a>
+
+* Easily create/customise/manage command line shortcut alaises, scripts.
+* Never have to type cd, or its evil twin cd .. again!
+* Never loose your shell aliases/easily share between devices/teams. Save in your own repo (from <a href=https://github.com/ki-sh/kish >Template</a>)
 
 
 ```
@@ -26,9 +29,7 @@ click 'Use this template' button on this page.
               """"""""""""
 ```
 
-* Easily create/customise/manage command line shortcuts.
-* Never loose your shell aliases/easily share between devices. Save in your own repo (from <a href=https://github.com/ticaboo/kish >Template</a>)
-* Never have to type cd, or its evil twin cd .. again!
+
 * Zero dependencies. Simple to use shell test framework (KIT).Tcho Bats?
 * Ubiqutous v3 portable pure shell script.
 * Comes with very useful example scripts:
@@ -48,24 +49,38 @@ source ~/.zshrc # or restart terminal
 
 ki
 ```
-
-$> ki shows the help generated from your aliased commands.
-$> kiu updates changes to your aliases. Note can run from anywhere.
-$> kin runs a wizzard to create a new command.
+Run from anywhere:
+```$>ki     # shows the help generated from your aliased commands.```
+```$>kiu    # updates changes to your aliases. Note can run from anywhere.```
+```$>kin    # runs a wizzard to create a new command.```
 
 Please Star the <a href="https://github.com/ki-sh/kishcore"> kishcore repo </a> to be alerted to
 core shared updates. (This separation enables shared enhancements as well as your own source control over your own scripts/aliases.)
 
 
-After first install, ki, kin, kiu can be run from anywhere, so you dont have to 
-cd into kish. 
-
-Congratulations, you are on the flowfull path of never using cd .. again!
+Congratulations, you are on the flow-full path of never using cd .. again!
 
 Coming soon:  video showing the features of ki, with an example of one way of using it
 in a polyrepo scenario.
 
+## familiarize
+ki powered commands work thus:
+```ki anycommand anydirectores anyfiles anything_else_are_args_to_the_command.```
+ki visits into the directories given, runs the command and comes back out. Simple really. Why did we never have this before?!
+The order of files args commands does not matter.
 
+
+```
+ki cat kish/aliases/o*.sh  # ki anycmd 
+kin    # choose options: kat, cat, y. 
+kiu
+# start new terminal,
+kat kish/aliases/k*.sh # you just created your own first alias.
+# to remove an alias use kix:
+kix kat
+# this moves kat from aliases to aliases/parked.
+# any command in aliases are made live with kiu. You can 'park' scripts in any subdir off aliases.
+```
 
 ## saves you a ton of typing, ramps up flow:
 
@@ -95,12 +110,7 @@ in a polyrepo scenario.
 
 But its more than just about saving keystrokes. The long commands cause mental impedence. Let alone cd/cd ../..etc. You will quickly find what were chores before become second nature flow. And flow matters. 
 
-ki powered commands work thus:
-ki anycommand anydirectores anyfiles anything_else_are_args_to_the_command.
-ki visits into the directories given, runs the command and comes back out. Simple really. Why did we never have this before?!
-The order of files args commands does not matter.
 
-Cli designed especially for mono/hybrid/poly repos. 
 
 ## Roadmap
 
