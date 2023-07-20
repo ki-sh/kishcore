@@ -3,13 +3,6 @@
 source "$HOME/.kish/lib/ki-spread.sh"
 source "$HOME/.kish/lib/colors.sh"
 
-# todo:
-# -ws pspec  : set active workspace file
-# -wso pspec : set and code open it. meh
-# -ws null   : show /return active ws file path.
-# -wsx : unset vs ws.
-# -h
-#  none
 function ki() {
     if [ "$1" = '-h' ] || [ $# = 0 ]; then
         echo ''
