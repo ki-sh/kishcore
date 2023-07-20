@@ -1,6 +1,11 @@
 #!/bin/bash
 # clear
-kcore=$KISHCOREDIR #$PWD/node_modules/kishcore
+
+if [ "$1" == 'local' ]; then
+  kcore=$PWD/node_modules/kishcore
+else
+  kcore=$KISHCOREDIR
+fi
 
 # echo ''
 # cat $kcore/src/lib/ascii.txt
