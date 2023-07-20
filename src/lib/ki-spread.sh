@@ -19,6 +19,7 @@ function ey() {
 }
 
 function _ki-spread() {
+    log_info "_ki-spread."
     local res=""
     local returndir=$PWD
     local file_dir_count=0
@@ -34,42 +35,37 @@ function _ki-spread() {
                 cmd+=" $p"
             fi
         else
-            file_dir_count+=1
+            file_dir_count=$(( $file_dir_count + 1 ))
         fi
     done
 
     # no params, or no files and no directories, default to current dir:
-    if [ $# -eq 0 ] || [ $file_dir_count == 0 ]; then
+    log_info "file_dir_count: $file_dir_count"
+    if [ $# -eq 0 ] || [ $file_dir_count -eq 0 ]; then
+        log_info "setting ./" 
         set "./"
     fi
 
     for p in "$@"; do
-
-        if [ -d "$p" ]; then
-            # log_info "has_target_files, process dir $p"
-            local dir_stripped=${p/\/\//\/}
-            # log_info "dir: $dir, stripped: $dir_stripped"
-            res+="cd $dir_stripped,"
-            res+="echo '',"
-            res+="ey $dir_stripped:,"
-            res+="$cmd ,"         # params if $@, shift dir
-            res+="cd $returndir," #("cd ..") #
-
-        fi
-        if [ -f "$p" ]; then
-        # some commands -git add yes you strange beast! need to cd to dir to assure works.
-        # reliability over efficiency.
-            file=$(basename "$p")
-            dir=$(dirname "$p")
+        local file
+        local dir
+        if [ -e "$p" ]; then
+            if [ -f "$p" ]; then
+                file=$(basename "$p")
+                dir=$(dirname "$p")
+            else
+                dir=$p
+                file=''
+            fi
+            log_info "dir: $dir, file: $file"
             res+="cd $dir,"
             res+="echo '',"
             res+="ey $dir:,"
-            res+="$cmd $file,"    # params if $@, shift dir
-            res+="cd $returndir," #("cd ..") #
-            # res+="ey $p:,"
-            # res+="$cmd $p,"
-            # log_info "has_target_files -f $p"
+            res+="$cmd $file,"
+            res+="cd $returndir,"
+
         fi
+
     done
     echo "$res"
 }
