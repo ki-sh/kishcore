@@ -36,6 +36,7 @@ function _ki-spread() {
             fi
         else
             file_dir_count=$(( $file_dir_count + 1 ))
+            file_dir_count=$(( $file_dir_count + 1 ))
         fi
     done
 
@@ -65,6 +66,7 @@ function _ki-spread() {
             res+="cd $returndir,"
 
         fi
+
 
     done
     echo "$res"
