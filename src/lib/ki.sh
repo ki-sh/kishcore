@@ -16,12 +16,12 @@ function ki() {
         cat "$HOME/.kish/lib/generatedhelp.txt" | tr -d '"' | tr -d "'"
         echo ''
         count=$(cat "$HOME/.kishlog/cmdcount.log")
-        echo "    You have utilised Ki $count times now."
+        echo "    You have utilised Ki ${GREEN}$count${NORMAL} times now."
         echo "    When weve saved you a bunch of time,"
         echo "    please support our dev and get us a coffee!"
         echo "    ${GREEN}https://buymeacoffee.com/henryGuy#thx!"
         echo "${NORMAL}"
-      
+
     # cat "$HOME/.kish/lib/ki-spread.help.txt"
 
     # read -p "more..." </dev/tty
