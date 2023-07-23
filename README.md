@@ -100,10 +100,10 @@ They bubble up from subdirectories until they find the configuration.
 Ki works with bubbling so that you can stay in any directory - usually an outer higher level one. This is typical of working with mono-repos. Any ki powered commands take care of navigating into the desired directories/ directories of files.
 
 
-[![Watch the video](https://github.com/timermachine/kish-core/blob/main/video-thumbnail.jpeg)](https://youtu.be/xeRWd8XPcWE)
+[[Demo video]](https://youtu.be/xeRWd8XPcWE)
 
 
-Follow allong these steps to replicate the actions shownn in the video:
+Follow allong these steps to replicate the actions shown in the video:
 
 ```
 # if you havent already, install ki as shown above.
