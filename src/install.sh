@@ -209,6 +209,25 @@ stinstall() {
   echo ""
 
 }
+# parked in favour of npx npm-check-updates
+# if take this approach rec write node js utility for jsonp parsing, not process.v
+function Xkishcoreupdatecheck() {
+  echo "check for Kish core updates? (y/n). times out in 3 seconds..."
+  read -t 3 check_for_update
+
+  if [ "$check_for_update" == 'y' ] || [ "$check_for_update" == 'Y' ]; then
+    source "$HOME/.kish/lib/util.sh"
+
+    url="https://registry.npmjs.org/kishcore"
+    resp=$(curl $url)
+    times=$(JSONP 'time' "$resp")
+    echo "times: $times"
+    # strip times : { and last }. ifs on , then last element, before colon, phew :(
+    latest_version=$(JSONP 'latest_version' "$times")
+    echo "latest_version: $latest_version"
+  fi
+
+}
 
 if [ "$1" = '-i' ]; then
   read -r -p 'Do you want to continue installation?(y/n) ' choice
@@ -225,4 +244,5 @@ if [ "$1" = '-i' ]; then
 else
   preflight
   stinstall
+  # xkishcoreupdatecheck
 fi

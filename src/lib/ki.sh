@@ -21,9 +21,10 @@ function ki() {
         echo "    please support our dev and get us a coffee!"
         echo "    ${GREEN}https://buymeacoffee.com/henryGuy#thx!"
         echo "${NORMAL}"
+      
     # cat "$HOME/.kish/lib/ki-spread.help.txt"
 
-    # read -p "more..." </dev/tty 
+    # read -p "more..." </dev/tty
 
     # echo '$ gc "commit message"           - runs in every first level dir that is git enabled.'
     # echo '$ gc webapp "commit message"    - runs in webapp folder (as long as it is git enabled'
