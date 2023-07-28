@@ -32,8 +32,8 @@
 ```
 
 
+* Zero dependencies. Simple to use shell test framework (KIT).Provides x-tests, only-tests, no DSL. It is an alternative to Bats shell script testing when you want something no setup, simple quick and easy to use.
 * Ubiqutous v3 portable pure shell script.
-* Zero dependencies. Comes with shell test framework (KIT).Provides x-tests, only-tests, no DSL. It is an alternative to Bats shell script testing when you want something no setup, simple quick and easy to use.
 * Comes with useful example scripts:
   * ocal : fast easy human cli for creating calendar events.
   * omap : open maps with location or directions
@@ -72,7 +72,7 @@ Congratulations, you are on the flow-full path of never using cd .. again!
 ## Familiarize
 ki powered commands work thus:
   ```
-  ki anycommand anydirectores anyfiles anything_else_not_files_or_dirs_are_args_to_the_command
+  ki anycommand anydirectores anyfiles anything_else_are_args_to_the_command
   ```
 ki visits into the directories given, runs the command and comes back out. Simple really. Why did we never have this before?!
 The order of files args commands does not matter.
@@ -97,13 +97,15 @@ Git and NPM/Yarn etc require you to be in a directory at or below their configur
 (.git for git, package.json for npm).
 They bubble up from subdirectories until they find the configuration. 
 
-Ki works with bubbling so that you can stay in any directory - usually an outer higher level one. This is typical of working with mono-repos. Any ki powered commands take care of navigating into the desired directories/ directories of files.
+Ki works with this so you can stay in any directory - usually an outer higher level one. This is typical of working with mono-repos. Any ki commands take care of navigating into the desired directories.
 
 
-[[Demo video]](https://youtu.be/xeRWd8XPcWE)
+
+https://github.com/ki-sh/kish/assets/114587432/2eb2ca4b-d2ef-4532-b514-2c81f08110d1
 
 
-Follow allong these steps to replicate the actions shown in the video:
+
+Follow allong these steps to replicate the actions shownn in the video:
 
 ```
 # if you havent already, install ki as shown above.
